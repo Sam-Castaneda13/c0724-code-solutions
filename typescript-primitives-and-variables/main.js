@@ -1,0 +1,16 @@
+'use strict';
+const fullName = 'Samuel Castaneda';
+const isCool = true;
+const totalPets = 10;
+console.log(fullName);
+console.log(typeof fullName);
+console.log(isCool);
+console.log(typeof isCool);
+console.log(totalPets);
+console.log(typeof totalPets);
+const empty = null;
+console.log(empty);
+console.log(typeof empty);
+const nothing = undefined;
+console.log(nothing);
+console.log(typeof nothing);
