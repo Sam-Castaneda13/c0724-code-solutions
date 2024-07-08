@@ -14,7 +14,7 @@ const empty: null = null;
 console.log(empty);
 console.log(typeof empty);
 
-let nothing: undefined;
+const nothing: undefined = undefined;
 
 console.log(nothing);
 console.log(typeof nothing);

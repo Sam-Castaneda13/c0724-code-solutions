@@ -11,6 +11,6 @@ console.log(typeof totalPets);
 const empty = null;
 console.log(empty);
 console.log(typeof empty);
-let nothing;
+const nothing = undefined;
 console.log(nothing);
 console.log(typeof nothing);
