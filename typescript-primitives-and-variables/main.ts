@@ -18,3 +18,5 @@ const nothing: undefined = undefined;
 
 console.log(nothing);
 console.log(typeof nothing);
+
+console.log('Changed branch name');
