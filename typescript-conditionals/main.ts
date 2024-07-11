@@ -114,17 +114,12 @@ console.log('The value of categorizeAcidityResults:', isAcidic);
 function introduceWarnerBro(name: string): string {
   switch (name) {
     case 'yakko':
-      return "We're the warner brothers!";
-      break;
     case 'wakko':
       return "We're the warner brothers!";
-      break;
     case 'dot':
       return "I'm cute~";
-      break;
     default:
       return 'Goodnight everybody!';
-      break;
   }
 }
 
@@ -135,25 +130,18 @@ function recommendMovie(genre: string): string {
   switch (genre) {
     case 'action':
       return 'You should watch Bad Boys';
-      break;
     case 'comedy':
       return "You should watch Ferris Bueller's Day Off";
-      break;
     case 'horror':
       return 'You should watch Train to Busan';
-      break;
     case 'drama':
       return 'You should watch The Pursuit of Happiness';
-      break;
     case 'musical':
       return 'You should watch In The Heights';
-      break;
     case 'sci-fi':
       return 'You should watch Star-Wars';
-      break;
     default:
       return 'Genre not recognized. Choose between action, comedy, horror, drama, musical, or sci-fi.';
-      break;
   }
 }
 

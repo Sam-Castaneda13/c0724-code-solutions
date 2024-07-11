@@ -18,7 +18,7 @@ Answer the following questions in the provided markdown file before turning in t
 
 - How do you compare two different expressions in the same condition? using either or and operators
 
-- What is the purpose of a `switch` statement? it makes what would be longer if/elsse statements easier to read and more user friendly
+- What is the purpose of a `switch` statement? it makes what would be longer if/else statements easier to read and more user friendly
 
 - Is a `default` clause required in order to use a `switch` statement? Yes but it useful as a checker same as the else clause.
 
