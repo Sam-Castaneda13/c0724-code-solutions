@@ -3,8 +3,7 @@
 function compact(array) {
   const newArray = [];
   for (let i = 0; i < array.length; i++) {
-    const checker = Boolean(array[i]);
-    if (checker !== false) {
+    if (Boolean(array[i]) === false) {
       newArray.push(array[i]);
     }
   }
