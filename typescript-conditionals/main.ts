@@ -47,7 +47,7 @@ interface Person {
 }
 
 function isOldEnoughToDrink(person: Person): boolean {
-  if (person.age > 21) {
+  if (person.age > 20) {
     return true;
   } else {
     return false;
@@ -62,7 +62,7 @@ const canDrinkChecker = isOldEnoughToDrink({
 console.log('The Value of isOldEnoughToDrinkResults:', canDrinkChecker);
 
 function isOldEnoughToDrive(person: Person): boolean {
-  if (person.age > 16) {
+  if (person.age > 15) {
     return true;
   } else {
     return false;
@@ -77,9 +77,7 @@ const canDriveChecker = isOldEnoughToDrive({
 console.log('The Value of isOldEnoughToDriveResults:', canDriveChecker);
 
 function isOldEnoughToDriveAndDrive(person: Person): boolean {
-  if (person.age > 16) {
-    return false;
-  } else if (person.age > 20) {
+  if (person.age > 15 && person.age > 20) {
     return false;
   } else {
     return false;
@@ -97,7 +95,7 @@ console.log(
 );
 
 function categorizeAcidity(pH: number): string {
-  if (pH < 7) {
+  if (pH < 7 && pH > -1) {
     return 'acid';
   } else if (pH === 7) {
     return 'neutral';
