@@ -3,7 +3,7 @@
 function getIndexes(array) {
   const newArray = [];
   for (let i = 0; i < array.length; i++) {
-    newArray.push(array.indexOf(array[i]));
+    newArray.push(i);
   }
   return newArray;
 }
