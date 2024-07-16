@@ -4,11 +4,11 @@
 
 Answer the following questions in the provided markdown file before turning in this exercise:
 
-- What HTML tag is used to link to another website?
+- What HTML tag is used to link to another website? <a href=""></a>
 
-- What is an absolute URL?
+- What is an absolute URL? It is the complete address of the linked resource including the protocol
 
-- What is a relative URL?
+- What is a relative URL? Specify the path to the linked resource relative to the current page.
 
 ## Notes
 
