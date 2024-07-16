@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #f4f9fb;
+}
+
+section {
+  padding: 1.5rem 0;
+}
+
+h2 {
+  font-family: 'Ga Maamli', sans-serif;
+  margin-bottom: 3.5rem;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+form {
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+input,
+button {
+  height: 3rem;
+  border-radius: 0.25rem;
+  font-size: 1.1rem;
+}
+
+input {
+  color: #dce6eb;
+  width: 400px;
+  padding: 0.5rem;
+  border: 1px solid;
+  font-weight: 300;
+}
+
+button {
+  background-color: #0bdc71;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  margin-left: 0.25rem;
+  border: none;
+  font-weight: 500;
+}
