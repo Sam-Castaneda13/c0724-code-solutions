@@ -8,7 +8,7 @@ Answer the following questions in the provided markdown file before turning in t
 
 - What purpose do the `thead` and `tbody` elements serve?<Thead> define column titles. It's important for associating data cells with their corresponding headers. While <tbody> It can be used multiple times to group rows logically.
 
-- Give two examples of data that would lend itself well to being displayed in a table. Sport Stats, Students Grades.
+- Give two examples of data that would lend itself well to being displayed in a table. Sport Stats, Students Grades!
 
 ## Notes
 
