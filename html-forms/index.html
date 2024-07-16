@@ -4,12 +4,12 @@
     <title>HTML Forms</title>
   </head>
   <body>
-    <h1>Coding Form</h1>
+    <h1>Coding Form!</h1>
     <form action="https://example.com/register" method="post">
       <label for="email">Email</label>
       <br />
       <input type="email" id="email" name="email" required />
-      <br />
+      <br /><br />
       <label for="coding">Why is coding cool</label>
       <br />
       <select id="coding" name="coding">
@@ -20,6 +20,7 @@
       </select>
       <br /><br />
       <label>Favorite Language (Choose One)</label>
+      <br /><br />
       <label><input type="radio" name="favorite" value="html" />HTML</label>
       <label><input type="radio" name="favorite" value="css" />CSS</label>
       <label
@@ -28,6 +29,18 @@
           name="favorite"
           value="javascript" />JavaScript</label
       >
+      <br /><br />
+      <label>Would you like to sign up for more information</label>
+      <br /><br />
+      <label
+        ><input type="checkbox" name="signup" value="yes" />Sign me up!</label
+      >
+      <br />
+      <label for="comments">Comments</label>
+      <br />
+      <textarea id="comments" name="comments"></textarea>
+      <br />
+      <button type="submit">Submit</button>
     </form>
   </body>
 </html>
