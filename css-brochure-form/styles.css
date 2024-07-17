@@ -17,20 +17,12 @@ div.distance {
 .input {
   margin-left: 280px;
   width: 420px;
-  border-radius: 7px;
+  border-radius: 4px;
   border: 1px solid grey;
   height: 30px;
 }
 
-.email {
-  font-size: x-small;
-  margin-bottom: 0;
-  font-family: 'Brandon Grotesque', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-}
-
-.question {
+.label {
   font-size: x-small;
   margin-bottom: 0;
   font-family: 'Brandon Grotesque', sans-serif;
