@@ -1,0 +1,23 @@
+.container {
+  max-width: 800px;
+  max-height: 800px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+}
+
+.column-one-third {
+  flex-basis: calc(100% / 3);
+}
+
+.column-one-fourth {
+  flex-basis: 25%;
+}
+
+.character {
+  width: 100%;
+}
+
+/* I will admit that I cheated and took this character class from the review */
