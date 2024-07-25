@@ -2,10 +2,14 @@ const $TabContainer = document.querySelector('.tab-container');
 const $AllTab = document.querySelectorAll('.tab');
 const $AllView = document.querySelectorAll('.view');
 
-if (!$TabContainer) throw new Error("Didn't work:(");
+if (!$TabContainer) throw new Error('The $TabContainer query did not work.');
 
 function handleClick(event: Event): void {
   const $eventTarget = event.target as HTMLDivElement;
+
+  if (!$eventTarget) {
+    throw new Error('The $eventTarget is not selecting a tab');
+  }
 
   for (let i = 0; i < $AllTab.length; i++) {
     if ($eventTarget.textContent === $AllTab[i].textContent) {
@@ -26,4 +30,4 @@ function handleClick(event: Event): void {
   }
 }
 
-if ($TabContainer) $TabContainer.addEventListener('click', handleClick);
+$TabContainer.addEventListener('click', handleClick);
