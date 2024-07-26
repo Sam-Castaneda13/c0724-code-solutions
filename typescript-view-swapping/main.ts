@@ -7,7 +7,7 @@ if (!$TabContainer) throw new Error('The $TabContainer query did not work.');
 function handleClick(event: Event): void {
   const $eventTarget = event.target as HTMLDivElement;
 
-  if (!$eventTarget) {
+  if ($eventTarget.matches('.tab') !== true) {
     throw new Error('The $eventTarget is not selecting a tab');
   }
 
