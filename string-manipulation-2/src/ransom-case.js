@@ -1,12 +1,22 @@
 'use strict';
 /* exported ransomCase */
 function ransomCase(string) {
+  const evenArray = [];
+  const oddArray = [];
+  const newArray = [];
+  let newString = '';
   for (let i = 0; i < string.length; i++) {
     if (i % 2 === 0) {
-      string[i].toLowerCase();
+      evenArray.push(string[i].toLowerCase());
     } else {
-      string[i].toUpperCase();
+      oddArray.push(string[i].toUpperCase());
     }
   }
-  return string;
+  for (let o = 0; o < string.length; o++) {
+    if (evenArray[o]) newArray.push(evenArray[o]);
+    if (oddArray[o]) newArray.push(oddArray[o]);
+  }
+  newString = newArray.toString();
+  newString = newString.replaceAll(',', '');
+  return newString.trim();
 }
