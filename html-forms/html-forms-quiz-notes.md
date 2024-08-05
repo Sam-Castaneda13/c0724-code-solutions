@@ -4,13 +4,13 @@
 
 Answer the following questions in the provided markdown file before turning in this exercise:
 
-- What is the purpose of an HTML `form` element?
+- What is the purpose of an HTML `form` element? It acts as a container for different types of inputs elements. The action attribute specifies the url to which the form's data is sent when submitted
 
-- Give five examples of form control elements.
+- Give five examples of form control elements. <input>, <label>, <select>, <button>, <option>
 
-- Give three examples of `type` attribute values for HTML `<input>` elements.
+- Give three examples of `type` attribute values for HTML `<input>` elements. it could be text, email, and password.
 
-- Is an HTML `<input>` element a block element or an inline element?
+- Is an HTML `<input>` element a block element or an inline element? it is the inline element.
 
 ## Notes
 
