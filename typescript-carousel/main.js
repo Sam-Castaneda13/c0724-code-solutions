@@ -25,6 +25,7 @@ const $left = document.querySelector('#left');
 if (!$left) throw new Error("Couldn't load left arrow");
 const $dots = document.querySelectorAll('span');
 if (!$dots) throw new Error("Couldn't load left arrow");
+// what
 let intervalId = setInterval(imgSwitch, 3000);
 function startInterval() {
   clearInterval(intervalId);
