@@ -24,8 +24,7 @@ const v5: Customer = {
 };
 
 // && Logical AND operator
-console.log(v1 && 'v1 is truthy');
-console.log(v2 && 'v2 is truthy');
+console.log(v1 && 'v1 is truthy', v2 && 'v2 is truthy');
 
 // || Logical Or Operator
 const config1 = v1 || 'default-value';
