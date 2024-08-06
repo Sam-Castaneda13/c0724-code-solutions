@@ -4,8 +4,7 @@ console.log('In order:');
 values.forEach((item) => {
   console.log(item);
 });
-const reverseVals = values.toReversed();
 console.log('Reverse order:');
-reverseVals.forEach((item) => {
-  console.log(item);
+values.forEach((item, index, array) => {
+  console.log(array[array.length - 1 - index]);
 });

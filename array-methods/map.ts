@@ -3,6 +3,6 @@ const salePrices = prices.map((num) => ({ price: num, salePrice: num / 2 }));
 
 console.log('Price Objects', salePrices);
 
-const formattedPrice = prices.map((num) => `$${num}`);
+const formattedPrice = prices.map((num) => num.toFixed(2));
 
 console.log(formattedPrice);
