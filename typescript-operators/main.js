@@ -11,7 +11,8 @@ const v5 = {
   },
 };
 // && Logical AND operator
-console.log(v1 && 'v1 is truthy', v2 && 'v2 is truthy');
+v1 && console.log('v1 is truthy');
+v2 && console.log('v2 is truthy');
 // || Logical Or Operator
 const config1 = v1 || 'default-value';
 const config2 = v2 || 'default-value';
