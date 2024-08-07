@@ -8,3 +8,7 @@ if (!$dismiss) throw new Error('It could not load the dismiss button');
 $open.addEventListener('click', function () {
   $modal.show();
 });
+
+$dismiss.addEventListener('click', function () {
+  $modal.close();
+});
