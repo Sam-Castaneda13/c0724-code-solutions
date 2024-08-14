@@ -1,17 +1,47 @@
-async function getData(): Promise<void> {
-  const url =
-    'https://raw.githubusercontent.com/ajhyndman/fire-emblem-working-title/master/packages/fire-emblem-heroes-stats/stats.json';
+interface User {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+}
+
+interface Pokemon {
+  name: string;
+  height: number;
+  weight: number;
+}
+
+async function fetchData(): Promise<void> {
   try {
-    const response = await fetch(url);
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+
     if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    const json = await response.json();
-    console.log('hello', json[0]);
+    const user = (await response.json()) as User;
+
+    console.log(user);
   } catch (error) {
-    console.error('what');
+    console.log('Error:', error);
   }
 }
 
-getData();
+fetchData();
+
+async function fetchPokemon(): Promise<void> {
+  try {
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon/403');
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const pokemon = (await response.json()) as Pokemon;
+    console.log(pokemon);
+  } catch (error) {
+    console.log('Error:', error);
+  }
+}
+
+fetchPokemon();
