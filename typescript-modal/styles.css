@@ -7,7 +7,7 @@ body {
 }
 
 dialog {
-  border-color: transparent;
+  border-color: black;
 }
 
 dialog::backdrop {

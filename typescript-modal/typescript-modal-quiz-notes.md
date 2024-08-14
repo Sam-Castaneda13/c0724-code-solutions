@@ -4,13 +4,13 @@
 
 Answer the following questions in the provided markdown file before turning in this exercise:
 
-- What is the `<dialog>` element used for?
+- What is the `<dialog>` element used for? For open a modal or have something appear on the screen
 
-- How do you display a modal dialog?
+- How do you display a modal dialog? using .openModal or .open
 
-- How do you hide a modal dialog?
+- How do you hide a modal dialog? .close
 
-- What is the difference between the `showModal` & `show` methods?
+- What is the difference between the `showModal` & `show` methods? showModal will affect dialog elements while show doesn't affect it.
 
 ## Notes
 

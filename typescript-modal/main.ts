@@ -6,7 +6,7 @@ const $dismiss = document.querySelector('.dismiss-modal');
 if (!$dismiss) throw new Error('It could not load the dismiss button');
 
 $open.addEventListener('click', function () {
-  $modal.show();
+  $modal.showModal();
 });
 
 $dismiss.addEventListener('click', function () {
