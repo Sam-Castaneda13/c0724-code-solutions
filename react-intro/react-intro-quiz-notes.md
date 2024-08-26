@@ -4,13 +4,17 @@
 
 Answer the following questions in the provided markdown file before turning in this exercise:
 
-- What is React?
+- What is React? React is a library that allows developers to build websites and interfaces using individual pieces of functionality called components. Think of a component as a self-contained collection of HTML, CSS and JavaScript that provide all of the functionality necessary for something like a form.
 
-- What is a React component?
+- What is a React component? it is anything in project like an HTML element or a javascript button.
 
-- How do you mount a React app (root component) to the DOM?
+- How do you mount a React app (root component) to the DOM? createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+  <App />
+  </StrictMode>
+  );
 
-- What are some other popular frontend frameworks?
+- What are some other popular frontend frameworks? angular vue svelte
 
 ## Notes
 
