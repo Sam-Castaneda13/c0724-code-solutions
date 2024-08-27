@@ -1,11 +1,11 @@
 type Props = {
-  captions: string;
+  caption: string;
 };
 
-export function ImageCaption({ captions }: Props) {
+export function ImageCaption({ caption }: Props) {
   return (
     <div>
-      <h3>{captions}</h3>
+      <h3>{caption}</h3>
     </div>
   );
 }

@@ -1,11 +1,11 @@
 type Props = {
-  descs: string;
+  desc: string;
 };
 
-export function ImageDescription({ descs }: Props) {
+export function ImageDescription({ desc }: Props) {
   return (
     <div>
-      <p>{descs}</p>
+      <p>{desc}</p>
     </div>
   );
 }
