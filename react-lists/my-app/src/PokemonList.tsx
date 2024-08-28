@@ -3,6 +3,8 @@ type Props = {
 };
 
 export function PokemonList({ List }: Props) {
-  const listItems = List.map((pokemon) => <li>{pokemon.name}</li>);
+  const listItems = List.map((pokemon) => (
+    <li key={pokemon.number}>{pokemon.name}</li>
+  ));
   return <ul className="bigger">{listItems}</ul>;
 }
