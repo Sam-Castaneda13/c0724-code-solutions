@@ -11,8 +11,8 @@ type UserProps = {
 };
 
 export function UserForm({ user, onSubmit }: UserProps) {
-  const [username, setUsername] = useState(user?.username || '');
-  const [password, setPassword] = useState(user?.password || '');
+  const [username, setUsername] = useState(user?.username ?? '');
+  const [password, setPassword] = useState(user?.password ?? '');
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
