@@ -15,6 +15,8 @@ type ListItems = {
 export function SearchableList({ list }: Props) {
   const [search, setSearch] = useState('');
 
+  console.log(search);
+
   return (
     <div>
       <SearchBar search={search} setSearch={setSearch} />
@@ -36,18 +38,12 @@ function SearchBar({ search, setSearch }: SearchBar) {
 function ListItems({ items, search }: ListItems) {
   let item;
   for (let i = 0; i < items.length; i++) {
-    if (search.includes(items[i])) {
-      item = items.map((item) => (
+    if (!search.includes(items[i])) {
+      item = (
         <li key={i} className="show">
-          {item}
+          {items[i]}
         </li>
-      ));
-    } else {
-      item = items.map((item) => (
-        <li key={i} className="show hidden">
-          {item}
-        </li>
-      ));
+      );
     }
   }
 
