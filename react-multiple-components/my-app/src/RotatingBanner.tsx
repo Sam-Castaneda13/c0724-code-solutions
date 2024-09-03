@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 type Props = {
   items: string[];
 };
@@ -6,15 +8,46 @@ type Banner = {
 };
 type Indicators = {
   count: number;
+  active: number;
+  selector: (index: number) => void;
+};
+type Previous = {
+  prev: () => void;
+};
+type Next = {
+  next: () => void;
 };
 
 export function RotatingBanner({ items }: Props) {
+  const [active, setActive] = useState(0);
+  function changeButtonClick(num: number) {
+    setActive(num);
+  }
+
+  function handleSubmitPrev() {
+    if (active >= items.length || active < 1) {
+      setActive(5);
+    } else {
+      setActive(active - 1);
+    }
+  }
+  function handleSubmitNext() {
+    if (active >= items.length - 1) {
+      setActive(0);
+    } else {
+      setActive(active + 1);
+    }
+  }
   return (
     <div>
-      <Banner item={items[0]} />
-      <PrevButton />
-      <Indicators count={items.length} />
-      <NextButton />
+      <Banner item={items[active]} />
+      <PrevButton prev={handleSubmitPrev} />
+      <Indicators
+        count={items.length}
+        selector={changeButtonClick}
+        active={active}
+      />
+      <NextButton next={handleSubmitNext} />
     </div>
   );
 }
@@ -27,38 +60,52 @@ function Banner({ item }: Banner) {
   );
 }
 
-function PrevButton() {
+function PrevButton({ prev }: Previous) {
   return (
-    <button type="submit" className="button">
+    <button onClick={prev} type="button" className="button">
       Prev
     </button>
   );
 }
 
-function Indicators({ count }: Indicators) {
+function Indicators({ count, active, selector }: Indicators) {
   const buttons = [];
+
   for (let i = 0; i < count; i++) {
-    buttons.push(
-      <button type="submit" className="button">
-        {i}
-      </button>
-    );
+    if (i === active) {
+      buttons.push(
+        <button
+          onClick={() => selector(i)}
+          type="submit"
+          className="button active">
+          {i}
+        </button>
+      );
+      console.log('safe', active);
+    } else {
+      buttons.push(
+        <button onClick={() => selector(i)} type="submit" className="button">
+          {i}
+        </button>
+      );
+      console.log(active);
+    }
   }
   return (
     <div>
-      {buttons[0]}
-      {buttons[1]}
-      {buttons[2]}
-      {buttons[3]}
-      {buttons[4]}
-      {buttons[5]}
+      <span>{buttons[0]}</span>
+      <span>{buttons[1]}</span>
+      <span>{buttons[2]}</span>
+      <span>{buttons[3]}</span>
+      <span>{buttons[4]}</span>
+      <span>{buttons[5]}</span>
     </div>
   );
 }
 
-function NextButton() {
+function NextButton({ next }: Next) {
   return (
-    <button type="submit" className="button">
+    <button onClick={next} type="button" className="button">
       Next
     </button>
   );
