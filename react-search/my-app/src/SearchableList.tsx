@@ -36,10 +36,10 @@ function SearchBar({ search, setSearch }: SearchBar) {
 }
 
 function ListItems({ items, search }: ListItems) {
-  let item;
+  const item = [];
   for (let i = 0; i < items.length; i++) {
-    if (!search.includes(items[i])) {
-      item = (
+    if (items[i].toLocaleLowerCase().includes(search.toLocaleLowerCase())) {
+      item.push(
         <li key={i} className="show">
           {items[i]}
         </li>
