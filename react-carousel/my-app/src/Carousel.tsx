@@ -17,17 +17,11 @@ type Image = {
   image: { src: string; alt: string };
 };
 // type Circle = {
-//   switch: string
+//   index: number
 // }
 
 export function Carousel({ images }: Props) {
   const [index, setIndex] = useState(0);
-
-  // function handleCircleSwitch(num: string) {
-  //   if (Number(num) === index){
-  //     return 'filled';
-  //   }
-  // }
 
   useEffect(() => {
     const timerId = setInterval(() => {
@@ -61,9 +55,7 @@ export function Carousel({ images }: Props) {
         <Image image={images[index]} />
         <NextButton nextButton={handleSubmitNext} />
       </div>
-      <div>
-        <CircleButton />
-      </div>
+      <div>{/* <CircleButton index={index}/> */}</div>
     </>
   );
 }
@@ -89,16 +81,21 @@ function NextButton({ nextButton }: NextButton) {
   );
 }
 
-function CircleButton() {
-  return (
-    <>
-      <div className="img-dots">
-        <span className="what" id="dot1"></span>
-        <span className="empty" id="dot2"></span>
-        <span className="empty" id="dot3"></span>
-        <span className="empty" id="dot4"></span>
-        <span className="empty" id="dot5"></span>
-      </div>
-    </>
-  );
-}
+// function CircleButton({index}: Circle) {
+
+//   const filled = handleFilledCircle()
+
+//   function handleFilledCircle() {
+//   return (
+//     <>
+//       <div className="img-dots">
+//         <span className="what" id="dot1"></span>
+//         <span className="empty" id="dot2"></span>
+//         <span className="empty" id="dot3"></span>
+//         <span className="empty" id="dot4"></span>
+//         <span className="empty" id="dot5"></span>
+//       </div>
+//     </>
+//   );
+// }
+// }
