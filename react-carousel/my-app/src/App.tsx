@@ -4,28 +4,28 @@ import { Carousel } from './Carousel';
 function App() {
   const images = [
     {
-      src: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/403.png',
-      alt: 'Shinx',
+      src: '/images/fushiguro.webp',
+      alt: 'fush',
     },
     {
-      src: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/613.png',
-      alt: 'Cubchoo',
+      src: '/images/inumaki.webp',
+      alt: 'Toge Inumaki',
     },
     {
-      src: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/396.png',
-      alt: 'Starly',
+      src: '/images/itadori.webp',
+      alt: 'Yuji Itadori',
     },
     {
-      src: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/399.png',
-      alt: 'Bidoof',
+      src: '/images/kugisaki.webp',
+      alt: 'Nobara Kugisaki',
     },
     {
-      src: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/725.png',
-      alt: 'Litten',
+      src: '/images/panda.webp',
+      alt: 'Panda',
     },
     {
-      src: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/435.png',
-      alt: 'Skuntank',
+      src: '/images/zen-in.webp',
+      alt: "Maki Zen'in",
     },
   ];
   return (

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
@@ -16,39 +16,42 @@ type PrevButton = {
 type Image = {
   image: { src: string; alt: string };
 };
+// type Circle = {
+//   switch: string
+// }
 
 export function Carousel({ images }: Props) {
   const [index, setIndex] = useState(0);
-  const [intervalId, setIntervalId] = useState<NodeJS.Timeout>();
 
-  function startInterval() {
-    clearInterval(intervalId);
-    setIntervalId(setInterval(timeInterval, 5000));
-  }
+  // function handleCircleSwitch(num: string) {
+  //   if (Number(num) === index){
+  //     return 'filled';
+  //   }
+  // }
 
-  function timeInterval() {
-    if (index >= images.length) {
-      setIndex(0);
-    } else {
-      setIndex(index + 1);
-    }
-  }
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      if (index >= images.length) {
+        setIndex(0);
+      } else {
+        setIndex(index + 1);
+      }
+    }, 5000);
+    return () => clearInterval(timerId);
+  }, [images.length, index]);
+
   function handleSubmitPrev() {
     if (index >= images.length || index < 1) {
       setIndex(5);
-      startInterval();
     } else {
       setIndex(index - 1);
-      startInterval();
     }
   }
   function handleSubmitNext() {
     if (index >= images.length - 1) {
       setIndex(0);
-      startInterval();
     } else {
       setIndex(index + 1);
-      startInterval();
     }
   }
   return (
@@ -87,5 +90,15 @@ function NextButton({ nextButton }: NextButton) {
 }
 
 function CircleButton() {
-  return <h1>Hello</h1>;
+  return (
+    <>
+      <div className="img-dots">
+        <span className="what" id="dot1"></span>
+        <span className="empty" id="dot2"></span>
+        <span className="empty" id="dot3"></span>
+        <span className="empty" id="dot4"></span>
+        <span className="empty" id="dot5"></span>
+      </div>
+    </>
+  );
 }
