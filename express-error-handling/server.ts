@@ -13,7 +13,6 @@ app.get('/api/notes', async (req, res, next) => {
     const notes = await readNotes();
     res.send(notes);
   } catch (err) {
-    res.status(500).send({ error: 'an unexpected error occurred' });
     next(err);
   }
 });
@@ -31,7 +30,6 @@ app.post('/api/notes', async (req, res, next) => {
     await writeNote(note);
     res.send(note);
   } catch (err) {
-    res.status(500).send({ error: 'an unexpected error occurred' });
     next(err);
   }
 });
@@ -52,7 +50,6 @@ app.put('/api/notes', async (req, res, next) => {
     await writeNote(note);
     res.send(note);
   } catch (err) {
-    res.status(500).send({ error: 'an unexpected error occurred' });
     next(err);
   }
 });
@@ -66,7 +63,6 @@ app.delete('/api/notes', async (req, res, next) => {
     await deleteNote(+id);
     res.send(`deleted ${id}`);
   } catch (err) {
-    res.status(500).send({ error: 'an unexpected error occurred' });
     next(err);
   }
 });
