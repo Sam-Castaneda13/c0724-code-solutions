@@ -46,10 +46,7 @@ app.get('/api/films', async (req, res, next) => {
     order by "replacementCost" desc
     `;
     const results = await db.query(sql);
-    const films = results;
-    if (!films) {
-      throw new ClientError(404, `films not found`);
-    }
+    const films = results.rows;
     res.send(films);
   } catch (err) {
     next(err);
@@ -85,6 +82,8 @@ app.put('/api/film', async (req, res, next) => {
     const { filmId, title } = req.query;
     if (filmId === undefined) {
       throw new ClientError(400, 'filmId is required');
+    } else if (title === undefined) {
+      throw new ClientError(400, 'title is required');
     }
     const sql = `
     update "films"
