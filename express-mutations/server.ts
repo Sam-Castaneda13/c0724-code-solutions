@@ -16,16 +16,23 @@ app.use(express.json());
 
 app.post('/api/actors', async (req, res, next) => {
   try {
-    const sql = `
-  insert into "actors" ("firstName", "lastName")
-  values ('Brendan', 'Eich')
-  returning *
-  `;
-    const results = await db.query(sql);
-    const post = results.rows;
-    if (!post) {
-      throw new ClientError(404, 'It is missing either firstName or lastName');
+    const { firstName, lastName } = req.body;
+    if (firstName === undefined) {
+      throw new ClientError(400, 'firstName is undefined');
     }
+    if (lastName === undefined) {
+      throw new ClientError(400, 'lastName is undefined');
+    }
+
+    const sql = `
+    insert into "actors" ("firstName", "lastName")
+    values ($1, $2)
+    returning *
+    `;
+    const params = [firstName, lastName];
+    const results = await db.query(sql, params);
+    const post = results.rows[0];
+
     res.status(201).json(post);
   } catch (err) {
     next(err);
@@ -34,7 +41,7 @@ app.post('/api/actors', async (req, res, next) => {
 
 app.put('/api/actors/:actorId', async (req, res, next) => {
   try {
-    const { firstName, lastName } = req.query;
+    const { firstName, lastName } = req.body;
     if (lastName === undefined) {
       throw new ClientError(400, 'lastName is undefined');
     } else if (firstName === undefined) {
@@ -54,9 +61,9 @@ app.put('/api/actors/:actorId', async (req, res, next) => {
     `;
     const params = [actorId, firstName, lastName];
     const results = await db.query(sql, params);
-    const update = results.rows;
+    const update = results.rows[0];
     if (!update) {
-      throw new ClientError(404, 'Could not load actorId');
+      throw new ClientError(404, `Could not load ${actorId}`);
     }
     res.status(200).json(update);
   } catch (err) {
@@ -78,7 +85,7 @@ app.delete('/api/actors/:actorId', async (req, res, next) => {
    `;
     const params = [actorId];
     const results = await db.query(sql, params);
-    const deleting = results.rows;
+    const deleting = results.rows[0];
     if (!deleting) throw new ClientError(404, 'Could not load deleting');
     res.status(204).json(deleting);
   } catch (err) {
