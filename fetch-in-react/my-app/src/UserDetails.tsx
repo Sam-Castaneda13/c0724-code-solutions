@@ -13,15 +13,23 @@ export function UserDetails({ userId, onCancel }: Props) {
   const [user, setUser] = useState<User>();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/users/` + userId
-      );
-      const jsonData = await response.json();
-      setUser(jsonData);
-    };
-    fetchData();
-    setIsLoading(false);
+    try {
+      const fetchData = async () => {
+        const response = await fetch(
+          `https://jsonplaceholder.typicode.com/users/` + userId
+        );
+        if (response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const jsonData = await response.json();
+        setUser(jsonData);
+        setIsLoading(false);
+      };
+      fetchData();
+    } catch (err) {
+      alert(err);
+      console.log(setError(err));
+    }
   }, [userId]);
 
   if (isLoading) {
