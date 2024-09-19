@@ -18,7 +18,7 @@ export function UserDetails({ userId, onCancel }: Props) {
         const response = await fetch(
           `https://jsonplaceholder.typicode.com/users/` + userId
         );
-        if (response.ok) {
+        if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const jsonData = await response.json();
@@ -27,8 +27,8 @@ export function UserDetails({ userId, onCancel }: Props) {
       };
       fetchData();
     } catch (err) {
-      alert(err);
-      console.log(setError(err));
+      console.log(alert(err));
+      setError(err);
     }
   }, [userId]);
 

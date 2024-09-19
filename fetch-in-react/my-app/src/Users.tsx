@@ -24,7 +24,7 @@ export function Users() {
         const response = await fetch(
           'https://jsonplaceholder.typicode.com/users'
         );
-        if (response.ok) {
+        if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const jsonData = await response.json();
@@ -33,8 +33,8 @@ export function Users() {
       };
       fetchData();
     } catch (err) {
-      alert(err);
-      console.log(setError(err));
+      console.log(alert(err));
+      setError(err);
     }
   }, []);
 
