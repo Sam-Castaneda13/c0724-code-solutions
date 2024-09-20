@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars -- Remove me */
-/* eslint-disable @typescript-eslint/no-empty-function -- Remove me */
 import { useEffect, useState } from 'react';
 import { PageTitle } from './PageTitle';
 import { TodoList } from './TodoList';
@@ -19,13 +17,71 @@ export function Todos() {
   const [error, setError] = useState<unknown>();
 
   /* Implement useEffect to fetch all todos. Hints are at the bottom of the file. */
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/api/todos');
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const jsonData = await response.json();
+        setIsLoading(false);
+        setTodos(jsonData);
+      } catch (err) {
+        setError(err);
+        setIsLoading(false);
+        console.error(err);
+      }
+    };
+    fetchData();
+  }, []);
 
   /* Implement addTodo to add a new todo. Hints are at the bottom of the file. */
-  async function addTodo(newTodo: UnsavedTodo) {}
+  async function addTodo(newTodo: UnsavedTodo) {
+    try {
+      const response = await fetch('/api/todos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newTodo),
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const jsonData = await response.json();
+      const newArray = [...todos, jsonData];
+      setTodos(newArray);
+    } catch (err) {
+      alert(`Error: ${String(err)}`);
+      console.error(err);
+    }
+  }
 
   /* Implement toggleCompleted to toggle the completed state of a todo. Hints are at the bottom of the file. */
-  async function toggleCompleted(todo: Todo) {}
+  async function toggleCompleted(todo: Todo) {
+    try {
+      todo.isCompleted = !todo.isCompleted;
+      const response = await fetch(`/api/todos/` + todo.todoId, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(todo),
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const jsonData = await response.json();
+      const newArray = todos.map((newTodo) => {
+        if (newTodo.todoId === jsonData.todoId) {
+          return jsonData;
+        } else {
+          return newTodo;
+        }
+      });
+      setTodos(newArray);
+    } catch (err) {
+      alert(`Error: ${String(err)}`);
+      console.error(err);
+    }
+  }
 
   if (isLoading) {
     return <div>Loading...</div>;
