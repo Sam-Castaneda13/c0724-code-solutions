@@ -10,18 +10,18 @@ describe('evenNumbers', () => {
 
 describe('toDollars', () => {
   it('returns number formatted as dollars', () => {
-    const money = 100;
+    const money = 325.5;
     const results = toDollars(money);
-    expect(results).toEqual('$100.00');
+    expect(results).toEqual('$325.50');
   });
 });
 
 describe('divideBy', () => {
   it('returns the divided numbers', () => {
-    const numbers = [25, 45, 64, 100, 235];
+    const numbers = [25, 42, 64, 10.8, 276];
     const divisor = 5;
     const results = divideBy(numbers, divisor);
-    expect(results).toEqual([5, 9, 12.8, 20, 47]);
+    expect(results).toEqual([5, 8.4, 12.8, 2.16, 55.2]);
   });
 });
 
@@ -39,9 +39,9 @@ describe('multiplyBy', () => {
     expect(results).toEqual({
       one: 100,
       two: 200,
-      three: 300,
+      three: '60',
       four: 400,
-      five: NaN,
+      five: 'one-hundred',
     });
   });
 });
