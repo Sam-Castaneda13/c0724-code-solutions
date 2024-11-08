@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { type Item, readItem } from '../lib/read';
+import { useNavigate, useParams } from 'react-router-dom';
 
-type Props = {
-  itemId: number;
-  onDone: () => void;
-};
-export function Details({ itemId, onDone }: Props) {
+export function Details() {
   const [item, setItem] = useState<Item>();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown>();
+
+  const { itemId } = useParams();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function loadItem(itemId: number) {
@@ -41,7 +42,9 @@ export function Details({ itemId, onDone }: Props) {
     <div className="container">
       <div className="flex flex-col">
         <div className="flex-auto p-6">
-          <div onClick={onDone} className="p-3 text-gray-600 cursor-pointer">
+          <div
+            onClick={() => navigate('/')}
+            className="p-3 text-gray-600 cursor-pointer">
             &lt; Back to Dashboard
           </div>
           <div className="flex flex-wrap mb-4">

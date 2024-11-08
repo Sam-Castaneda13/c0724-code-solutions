@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { type Item, readItems } from '../lib/read';
+import { useNavigate } from 'react-router-dom';
 
-type Props = {
-  onDetails: (itemId: number) => void;
-};
-export function Dashboard({ onDetails }: Props) {
+export function Dashboard() {
   const [items, setItems] = useState<Item[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown>();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function loadItems() {
@@ -42,7 +42,10 @@ export function Dashboard({ onDetails }: Props) {
       <div className="flex flex-wrap">
         {items?.map((item) => (
           <div key={item.itemId} className="w-full md:w-1/2 lg:w-1/3 pr-4 pl-4">
-            <ItemCard item={item} onClick={() => onDetails(item.itemId)} />
+            <ItemCard
+              item={item}
+              onClick={() => navigate(`/details/${item.itemId}`)}
+            />
           </div>
         ))}
       </div>
